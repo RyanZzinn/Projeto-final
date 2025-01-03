@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'EAS EVENT' /}
+#{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerformLocal.css'}" />
+#{/set}
+
+      <div class="form">
+          <form action="@{Inicio.salvar}">
+              <div class="form-header">
+                <div class="title">
+                     <h1>Cadastre-se</h1>
+                </div>
+                <div class="login-button">
+                     <button><a href="#">Entrar</a></button>
+                </div>
+              </div>
+              <div class="input-group">
+                 <div class="input-box">
+                      <label for="nameL">Nome do Local:</label>
+                      <input id="nameL" type="text" name="c.nomeLocal" placeholder="Digite o nome do local" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="city">Cidade</label>
+                      <input id="city" type="text" name="c.cidade" placeholder="Informe a cidade" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="road">Rua</label>
+                      <input id="road" type="text" name="c.rua" placeholder="Informe o nome da rua" required>
+                 </div>
+                  <div class="input-box">
+                      <label for="part">Bairro</label>
+                      <input id="part" type="text" name="c.bairro" placeholder="Informe o nome do bairro" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="number">Número do Local</label>
+                      <input id="number" type="number" name="c.numero" placeholder="Informe o número do local" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="location">Localização</label>
+                      <input id="location" type="URL" name="c.localização" placeholder="Insira o link da localidade" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="advantages">Informe um pequeno texto falando sobre o local</label>
+                      <input id="advantages" type="text" name="c.vantagens" placeholder="Texto sobre o local" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="value">Valor</label>
+                      <input id="value" type="number" name="c.valor" placeholder="Digite o valor do aluguel " required>
+                 </div>
+              </div> 
+              <div class="register-button">
+                  <button><a href="#">Cadastrar</a></button>
+              </di>   
+          </form>
+      </div>
+
