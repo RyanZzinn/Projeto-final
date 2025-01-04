@@ -3,11 +3,18 @@
 #{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerinicio.css'}" />
 #{/set}   
     
-        
-        <h1 class="heading">###############</h1>
+    <div>
+        <h1 class="heading"><a>EASY EVENT</a></h1> 
+        <button><a href="#">Entrar</a></button>
+        <button><a href="#">Cadastrar</a></button>
+    </div>
+  <form action="@{Inicio.list}">
+        <input type="text" name="termo" value="${termo}"/>
+        <input type="submit" value="Pesquisar"/>
+  </form>
           <div class="container">
             <div class="container-box">
-             #{list items:CadastrarL, as: 'cl'}
+             #{list items:cadastrarL, as: 'cl'}
                 <div class="box">
                    <img src="@{Inicio.verFoto(cl.id)}" alt="Foto do local" />
                    <h3>${cl.nomeLocal}</h3>

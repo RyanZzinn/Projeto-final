@@ -7,13 +7,23 @@ import play.mvc.Controller;
 
 public class Inicio extends Controller {
 
+	public static void list(String termo) {
+		List<CadastrarLocal> cadastrarL = null;
+		if (termo == null) {
+			cadastrarL = CadastrarLocal.findAll();
+		} else {
+			cadastrarL = CadastrarLocal.find("lower(nomeLocal) like ?1", "%" + termo.toLowerCase() + "%").fetch();
+		}
+		render(cadastrarL, termo);
+	}
+
 	public static void form() {
 		render();
 	}
 
 	public static void detalhar(Long id) {
-		CadastrarLocal CadastrarL = CadastrarLocal.findById(id);
-		render(CadastrarL);
+		CadastrarLocal cadastrarL = CadastrarLocal.findById(id);
+		render(cadastrarL);
 	}
 
 	public static void salvar(CadastrarLocal c) {
@@ -24,12 +34,7 @@ public class Inicio extends Controller {
 		c.vantagens = c.vantagens.toLowerCase();
 		c.foto = c.foto;
 		c.save();
-		list();
-	}
-
-	public static void list() {
-		List<CadastrarLocal> CadastrarL = CadastrarLocal.findAll();
-		render(CadastrarL);
+		list(null);
 	}
 
 	public static void verFoto(Long id) {
