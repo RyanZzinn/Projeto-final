@@ -5,7 +5,7 @@
 
 
       <div class="form">
-          <form action="@{Inicio.salvar}">
+          <form action="@{Inicio.salvar}" enctype="multipart/form-data" method="post">
               <div class="form-header">
                 <div class="title">
                      <h1>Cadastre-se</h1>
@@ -45,7 +45,7 @@
                  </div>
                  <div class="input-box">
 		              <label class="photo">Foto</label>
-		              <input class="photo" type="file" name="local.foto" accept="image/*" />
+		              <input class="photo" type="file" name="c.foto" accept="image/*" />
 		         </div>
                  <div class="input-box">
                       <label for="advantages">Informe um pequeno texto falando sobre o local</label>

@@ -9,7 +9,7 @@
             <div class="container-box">
              #{list items:CadastrarL, as: 'cl'}
                 <div class="box">
-                   <img src="@{Inicio.verFoto(CadastrarL.id)}" alt="Foto do local" />
+                   <img src="@{Inicio.verFoto(cl.id)}" alt="Foto do local" />
                    <h3>${cl.nomeLocal}</h3>
                    <p>${cl.vantagens}</p>
                    <a class="btn" href="#">Acessar</a>
