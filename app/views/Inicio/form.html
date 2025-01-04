@@ -1,7 +1,8 @@
 #{extends 'main.html' /}
-#{set title:'EAS EVENT' /}
+#{set title:'EASYS EVENT' /}
 #{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerformLocal.css'}" />
 #{/set}
+
 
       <div class="form">
           <form action="@{Inicio.salvar}">
@@ -43,7 +44,7 @@
                       <input id="value" type="number" name="c.valor" placeholder="Digite o valor do aluguel " required>
                  </div>
                  <div class="input-box">
-		              <label class="photo">Foto:</label>
+		              <label class="photo">Foto</label>
 		              <input class="photo" type="file" name="local.foto" accept="image/*" />
 		         </div>
                  <div class="input-box">
@@ -53,7 +54,5 @@
               </div> 
               <div class="register-button">
                   <button type="submit"><a href="#">Cadastrar</a></button>
-              </di>   
-          </form>
-      </div>
-
+              </div>   
+          

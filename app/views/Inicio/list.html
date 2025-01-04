@@ -1,3 +1,22 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'EASY EVENT' /} 
+#{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerinicio.css'}" />
+#{/set}   
+    
+        
+        <h1 class="heading">###############</h1>
+          <div class="container">
+            <div class="container-box">
+             #{list items:CadastrarL, as: 'cl'}
+                <div class="box">
+                   <img src="@{Inicio.verFoto(CadastrarL.id)}" alt="Foto do local" />
+                   <h3>${cl.nomeLocal}</h3>
+                   <p>${cl.vantagens}</p>
+                   <a class="btn" href="#">Acessar</a>
+                   <br>
+                </div>
+                #{/list}
+            </div>
+          </div>
+
 

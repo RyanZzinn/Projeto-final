@@ -12,8 +12,8 @@ public class Inicio extends Controller {
 	}
 
 	public static void detalhar(Long id) {
-		CadastrarLocal local = CadastrarLocal.findById(id);
-		render(local);
+		CadastrarLocal CadastrarL = CadastrarLocal.findById(id);
+		render(CadastrarL);
 	}
 
 	public static void salvar(CadastrarLocal c) {
@@ -23,6 +23,7 @@ public class Inicio extends Controller {
 		c.cidade = c.cidade.toLowerCase();
 		c.vantagens = c.vantagens.toLowerCase();
 		c.save();
+		list();
 	}
 
 	public static void list() {
