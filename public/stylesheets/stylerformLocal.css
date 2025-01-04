@@ -76,11 +76,26 @@ body {
 	border-radius: 10px;
 	box-shadow: 1px 1px 6px #000000;
 }
-.input-box input:hover {
+textarea#advantages{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: baseline;
+	width: 53em;
+	resize: none;
+	margin: 1rem;
+	border: none;
+	padding: 0.8rem 1.2rem;
+	border-radius: 10px;
+	box-shadow: 1px 1px 6px #000000;
+}.input-box input:hover {
     background-color: rgb(229, 229, 229);
 }
-.input-box input:focus-visible {
+.input-box input:focus-visible{
     outline: 1px solid blue;
+}
+ textarea:focus-visible{
+	outline: 1px solid blue;
 }
 .input-box label {
     font-size: 0.75rem;

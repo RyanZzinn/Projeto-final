@@ -17,6 +17,7 @@ public class Inicio extends Controller {
 		c.bairro = c.bairro.toLowerCase();
 		c.cidade = c.cidade.toLowerCase();
 		c.vantagens = c.vantagens.toLowerCase();
+
 		c.save();
 	}
 
