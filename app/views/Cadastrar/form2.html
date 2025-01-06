@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+#{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerformCadastrar.css'}" />
+#{/set}
+
+      <div class="form">
+          <form action="@{Cadastrar.salvar}">
+              <div class="form-header">
+                <div class="title">
+                     <h1>Cadastre-se</h1>
+                </div>
+                <div class="login-button">
+                     <button><a href="#">Entrar</a></button>
+                </div>
+              </div>
+              <div class="input-group">
+                 <div class="input-box">
+                      <label for="name">Nome</label>
+                      <input id="name" type="text" name="p.nome" placeholder="Digite seu nome" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="dtn">Data de Nascimento</label>
+                      <input id="dtn" type="date" name="p.dataNascimento" placeholder="dd/mm/yyyy" required>
+                 </div>
+                 <div class="input-box">
+                      <label for="number">Celular</label>
+                      <input id="number" type="number" name="p.celular" placeholder="Número do Celular" required>
+                 </div>
+                  <div class="input-box">
+                      <label for="email">Email</label>
+                      <input id="email" type="email" name="p.email" placeholder="Informe seu email" required>
+                 </div>
+              </div> 
+              <div class="register-button">
+                  <button type="submit">Cadastrar</button>
+              </div>   
+          
+
