@@ -21,10 +21,13 @@
           <a class="nav-link" href="@{Inicio.form2}">Cadastrar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="@{Login.sair}">Sair</a>
+          <a class="nav-link" href="@{Cadastrar.form}">Cadastrar Local</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="@{Inicio.list}">Sair</a>
         </li>
       </ul>
-      <form action="@{Inicio.list}" class="d-flex" role="search">
+      <form action="@{Cadastrar.list2}" class="d-flex" role="search">
         <input class="form-control me-2" type="text" placeholder="NOME DO LOCAL" aria-label="Search" name="termo" value="${termo}">
         <button class="btn btn-outline-success" type="submit">Pesquisar</button>
       </form>
@@ -44,7 +47,7 @@
                    <img src="@{Inicio.verFoto(cl.id)}" alt="Foto do local" />
                    <h3>${cl.nomeLocal}</h3>
                    <p>${cl.vantagens}</p>
-                   <a class="btn" href="@{Login.form}">Acessar</a>
+                   <a class="btn" href="#">Acessar</a>
                    <br>
                 </div>
                 #{/list}

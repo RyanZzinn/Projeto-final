@@ -3,12 +3,16 @@ package controllers;
 import java.util.List;
 
 import models.CadastrarLocal;
+import models.CadastrarPessoa;
 import play.mvc.Controller;
 
 public class Inicio extends Controller {
 
-	public static void list(String termo) {
+	public static void form2() {
+		render();
+	}
 
+	public static void list(String termo) {
 		List<CadastrarLocal> cadastrarL = null;
 		if (termo == null) {
 			cadastrarL = CadastrarLocal.findAll();
@@ -18,20 +22,16 @@ public class Inicio extends Controller {
 		render(cadastrarL, termo);
 	}
 
-	public static void salvar(CadastrarLocal c) {
-		c.nomeLocal = c.nomeLocal.toLowerCase();
-		c.rua = c.rua.toLowerCase();
-		c.bairro = c.bairro.toLowerCase();
-		c.cidade = c.cidade.toLowerCase();
-		c.vantagens = c.vantagens.toLowerCase();
-		c.foto = c.foto;
-		c.save();
-		list(null);
-	}
-
 	public static void detalhar(Long id) {
 		CadastrarLocal cadastrarL = CadastrarLocal.findById(id);
 		render(cadastrarL);
+	}
+
+	public static void salvar(CadastrarPessoa p) {
+		p.nome = p.nome.toLowerCase();
+		p.email = p.email.toLowerCase();
+		p.save();
+		renderTemplate("Login/form.html");
 	}
 
 	public static void verFoto(Long id) {
