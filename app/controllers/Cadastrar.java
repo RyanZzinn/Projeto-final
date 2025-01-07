@@ -19,7 +19,6 @@ public class Cadastrar extends Controller {
 		p.nome = p.nome.toLowerCase();
 		p.email = p.email.toLowerCase();
 		p.save();
-		list();
 	}
 
 	public static void list() {
