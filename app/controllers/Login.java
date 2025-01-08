@@ -1,6 +1,7 @@
 package controllers;
 
 import models.CadastrarPessoa;
+import play.libs.Crypto;
 import play.mvc.Controller;
 
 public class Login extends Controller {
@@ -11,7 +12,8 @@ public class Login extends Controller {
 
 	public static void logar(String email, String senha) {
 
-		CadastrarPessoa use = CadastrarPessoa.find("email = ?1 and senha = ?2 ", email, senha).first();
+		CadastrarPessoa use = CadastrarPessoa.find("email = ?1 and senha = ?2 ", email, Crypto.passwordHash(senha))
+				.first();
 
 		if (use == null) {
 			form();

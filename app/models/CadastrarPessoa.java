@@ -1,13 +1,16 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import play.db.jpa.Model;
+import play.libs.Crypto;
 
 @Entity
 public class CadastrarPessoa extends Model {
@@ -16,6 +19,13 @@ public class CadastrarPessoa extends Model {
 	public float celular;
 	public String email;
 	public String senha;
+
+	@OneToMany
+	public List<CadastrarLocal> locais;
+
+	public void setSenha(String s) {
+		senha = Crypto.passwordHash(s);
+	}
 
 	@Temporal(TemporalType.DATE)
 	public Date dataNascimento;
@@ -32,4 +42,5 @@ public class CadastrarPessoa extends Model {
 
 		return this.idade;
 	}
+
 }

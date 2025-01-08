@@ -15,17 +15,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="@{Login.form}">Entrar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="@{Inicio.form2}">Cadastrar</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="@{Cadastrar.form}">Cadastrar Local</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meus Locais</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="@{Inicio.list}">Sair</a>
         </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      #{if session['usuario.nome']}
+		    	<a>${session['usuario.nome']}</a>
+		    #{/if}
       </ul>
       <form action="@{Cadastrar.list2}" class="d-flex" role="search">
         <input class="form-control me-2" type="text" placeholder="NOME DO LOCAL" aria-label="Search" name="termo" value="${termo}">
