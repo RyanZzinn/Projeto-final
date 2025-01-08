@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.CadastrarLocal;
+import models.CadastrarPessoa;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -23,12 +24,18 @@ public class Cadastrar extends Controller {
 		render(cadastrarL, termo);
 	}
 
-	public static void detalhar(Long id) {
-		CadastrarLocal cadastrarL = CadastrarLocal.findById(id);
-		render(cadastrarL);
+	public static void detalhar(Long id, Long idpessoa) {
+		List<CadastrarLocal> cadastrarL = CadastrarLocal.findAll();
+		List<CadastrarPessoa> p = CadastrarPessoa.findAll();
+		if (id == null) {
+			render(null, idpessoa, cadastrarL, p);
+		} else {
+			CadastrarLocal pessoa = CadastrarLocal.findById(id);
+			render(pessoa, idpessoa, cadastrarL, p);
+		}
 	}
 
-	public static void salvar(CadastrarLocal c, Long idlocal) {
+	public static void salvar(CadastrarLocal c) {
 		c.nomeLocal = c.nomeLocal.toLowerCase();
 		c.rua = c.rua.toLowerCase();
 		c.bairro = c.bairro.toLowerCase();
@@ -39,14 +46,15 @@ public class Cadastrar extends Controller {
 		list2(null);
 	}
 
-	public static void MeusLocais(Long id) {
-		List<CadastrarLocal> CadastrarL = CadastrarLocal.findAll();
+	public static void MeusLocais(Long id, Long idpessoa) {
+		List<CadastrarLocal> cadastrarL = CadastrarLocal.findAll();
+		List<CadastrarPessoa> p = CadastrarPessoa.findAll();
 		if (id == null) {
-			renderText("Nada Cadastrado");
+			render(null, idpessoa, cadastrarL, p);
 		} else {
-			render(CadastrarL);
+			CadastrarLocal pp2 = CadastrarLocal.findById(idpessoa);
+			render(pp2, idpessoa, cadastrarL, p);
 		}
-
 	}
 
 }
