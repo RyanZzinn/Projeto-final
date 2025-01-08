@@ -23,7 +23,12 @@ public class Cadastrar extends Controller {
 		render(cadastrarL, termo);
 	}
 
-	public static void salvar(CadastrarLocal c) {
+	public static void detalhar(Long id) {
+		CadastrarLocal cadastrarL = CadastrarLocal.findById(id);
+		render(cadastrarL);
+	}
+
+	public static void salvar(CadastrarLocal c, Long idlocal) {
 		c.nomeLocal = c.nomeLocal.toLowerCase();
 		c.rua = c.rua.toLowerCase();
 		c.bairro = c.bairro.toLowerCase();
@@ -32,6 +37,16 @@ public class Cadastrar extends Controller {
 		c.foto = c.foto;
 		c.save();
 		list2(null);
+	}
+
+	public static void MeusLocais(Long id) {
+		List<CadastrarLocal> CadastrarL = CadastrarLocal.findAll();
+		if (id == null) {
+			renderText("Nada Cadastrado");
+		} else {
+			render(CadastrarL);
+		}
+
 	}
 
 }

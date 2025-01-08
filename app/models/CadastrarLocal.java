@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
@@ -18,4 +20,7 @@ public class CadastrarLocal extends Model {
 	public String cidade;
 	public Blob foto;
 
+	@ManyToOne
+	@JoinColumn(name = "idpessoa")
+	public CadastrarPessoa p;
 }
