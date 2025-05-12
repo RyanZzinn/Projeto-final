@@ -1,13 +1,104 @@
 #{extends 'main.html' /}
- 
- 
+#{set title:'Detalhes do Local' /} 
+#{set 'moreStyles'}
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerinicio.css'}" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+    .detail-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    }
+    .detail-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+    .detail-info {
+        margin-bottom: 1.5rem;
+    }
+    .detail-info h3 {
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+    .detail-info p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+    .back-button {
+        margin-top: 2rem;
+    }
+</style>
+#{/set}
 
-   #{list items:cadastrarL, as: 'cl'}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EASY EVENT</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="@{Cadastrar.form}">Cadastrar Local</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="@{Cadastrar.list2}">Todos os Locais</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="@{Cadastrar.MeusLocais}">Meus Locais</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="@{Login.sair}">Sair</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      #{if session['usuario.nome']}
+        <li class="nav-item">
+          <a class="nav-link">${session['usuario.nome']}</a>
+        </li>
+      #{/if}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="detail-container">
+    <h1 class="heading">${local.nomeLocal}</h1>
     
-                <div class="box">
-                   <h3></h3>
-                   <p>${}</p>
-                </div>
-                  #{/if}
+    <img src="@{Inicio.verFoto(local.id)}" alt="Foto do local" class="detail-image" />
+    
+    <div class="detail-info">
+        <h3>Endereço</h3>
+        <p>${local.rua}, ${local.numero} - ${local.bairro}</p>
+        <p>${local.cidade}</p>
+    </div>
+    
+    <div class="detail-info">
+        <h3>Valor</h3>
+        <p>R$ ${local.valor}</p>
+    </div>
+    
+    <div class="detail-info">
+        <h3>Localização</h3>
+        <p><a href="${local.localização}" target="_blank">Ver no mapa</a></p>
+    </div>
+    
+    <div class="detail-info">
+        <h3>Sobre o Local</h3>
+        <p>${local.vantagens}</p>
+    </div>
+    
+    <div class="back-button">
+        <a href="@{Cadastrar.list2}" class="btn">Voltar para Lista</a>
+    </div>
+</div>
+
+
    
   

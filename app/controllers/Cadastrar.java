@@ -24,15 +24,12 @@ public class Cadastrar extends Controller {
 		render(cadastrarL, termo);
 	}
 
-	public static void detalhar(Long id, Long idpessoa) {
-		List<CadastrarLocal> cadastrarL = CadastrarLocal.findAll();
-		List<CadastrarPessoa> p = CadastrarPessoa.findAll();
-		if (id == null) {
-			render(null, idpessoa, cadastrarL, p);
-		} else {
-			CadastrarLocal pessoa = CadastrarLocal.findById(id);
-			render(pessoa, idpessoa, cadastrarL, p);
+	public static void detalhar(Long id) {
+		CadastrarLocal local = CadastrarLocal.findById(id);
+		if (local == null) {
+			notFound("Local não encontrado");
 		}
+		render(local);
 	}
 
 	public static void salvar(CadastrarLocal c) {

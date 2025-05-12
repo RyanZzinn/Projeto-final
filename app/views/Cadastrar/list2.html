@@ -50,8 +50,7 @@
                    <img src="@{Inicio.verFoto(cl.id)}" alt="Foto do local" />
                    <h3>${cl.nomeLocal}</h3>
                    <p wrap="hard">${cl.vantagens}</p>
-                   <a class="btn" href="@{Cadastrar.Detalhar}">Acessar</a> | <a href="@{Cadastrar.remover(cl.id)}">Remover</a> | <a href="@{Cadastrar.editar(cl.id)}"> editar 
-              
+                   <a class="btn" href="@{Cadastrar.detalhar(cl.id)}">Acessar</a> | <a href="@{Cadastrar.remover(cl.id)}">Remover</a> | <a href="@{Cadastrar.editar(cl.id)}"> editar</a>
                 </div>
                 #{/list}
                 
