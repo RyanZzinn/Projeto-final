@@ -19,8 +19,9 @@ public class CadastrarLocal extends Model {
 	public int numero;
 	public String cidade;
 	public Blob foto;
+	public String userId;
 
 	@ManyToOne
 	@JoinColumn(name = "idpessoa")
-	public CadastrarPessoa p;
+	public CadastrarPessoa r;
 }

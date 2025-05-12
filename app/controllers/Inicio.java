@@ -31,6 +31,7 @@ public class Inicio extends Controller {
 		p.nome = p.nome.toLowerCase();
 		p.email = p.email.toLowerCase();
 		p.save();
+		String pessoa = session.get("usuario.email");
 		renderTemplate("Login/form.html");
 	}
 

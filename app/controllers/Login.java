@@ -20,6 +20,7 @@ public class Login extends Controller {
 		} else {
 			session.put("usuario.email", use.email);
 			session.put("usuario.nome", use.nome);
+			session.put("usuario.id", use.id);
 			renderTemplate("Cadastrar/list2.html");
 		}
 	}
@@ -28,4 +29,5 @@ public class Login extends Controller {
 		session.clear();
 		Inicio.list(null);
 	}
+
 }
