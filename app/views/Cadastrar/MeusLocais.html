@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">EASY EVENT</a>
+    <a class="navbar-brand" href="@{Cadastrar.list2}">EASY EVENT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,6 +30,10 @@
         </li>
       #{/if}
       </ul>
+      <form action="@{Cadastrar.MeusLocais}" class="d-flex" role="search">
+        <input class="form-control me-2" type="text" placeholder="NOME DO LOCAL" aria-label="Search" name="termo" value="${termo}">
+        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+      </form>
     </div>
   </div>
 </nav>
@@ -41,17 +45,19 @@
 <div class="container">
     <div class="container-box">
         #{if locais?.size() > 0}
-            #{list items:locais, as: 'local'}
+     #{list items:locais, as: 'local'}
                 <div class="box">
                     <img src="@{Inicio.verFoto(local.id)}" alt="Foto do local" />
                     <h3>${local.nomeLocal}</h3>
                     <p>${local.vantagens}</p>
-                    <a class="btn" href="@{Cadastrar.detalhar(local.id)}">Detalhes</a> | 
-                    <a class="btn" href="@{Cadastrar.remover(local.id)}">Remover</a> | 
+                    <a class="btn" href="@{Cadastrar.detalhar(local.id)}">Detalhes</a>|
+                    <a class="btn" href="@{Cadastrar.remover(local.id)}">Remover</a>|
                     <a class="btn" href="@{Cadastrar.editar(local.id)}">Editar</a>
                 </div>
             #{/list}
+          
         #{/if}
+        
         #{else}
             <div class="box">
                 <h3>Nenhum local cadastrado</h3>

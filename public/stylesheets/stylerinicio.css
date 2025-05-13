@@ -68,5 +68,34 @@ body {
 .box:hover {
 	box-shadow: 0 10px 15px rgba(0,0,0,.3);
 	transform: scale(1.03);
+}    
+.detail-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
+.detail-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+.detail-info {
+    margin-bottom: 1.5rem;
+}
+.detail-info h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.detail-info p {
+    color: #666;
+        font-size: 1.1rem;
+    }
+    .back-button {
+        margin-top: 2rem;
+    }
 

@@ -29,13 +29,14 @@ public class Cadastrar extends Controller {
 		if (local == null) {
 			notFound("Local não encontrado");
 		}
-		render(local);
+		CadastrarPessoa pessoal = local.r;
+		render(local, pessoal);
 	}
 
 	public static void salvar(CadastrarLocal c) {
 		String emailUsuario = session.get("usuario.email");
 		CadastrarPessoa pessoa = CadastrarPessoa.find("email = ?1", emailUsuario).first();
-		
+
 		c.nomeLocal = c.nomeLocal.toLowerCase();
 		c.rua = c.rua.toLowerCase();
 		c.bairro = c.bairro.toLowerCase();
@@ -55,8 +56,9 @@ public class Cadastrar extends Controller {
 
 	public static void editar(Long id) {
 		CadastrarLocal p = CadastrarLocal.findById(id);
-		List<CadastrarLocal> c3 = CadastrarLocal.findAll();
-		renderTemplate("Cadastar/form.html", p, c3);
+		p.delete();
+		renderTemplate("Cadastrar/form.html");
+
 	}
 
 	public static void MeusLocais() {

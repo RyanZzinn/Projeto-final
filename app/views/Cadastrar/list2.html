@@ -1,4 +1,4 @@
-#{extends 'main.html' /}
+	#{extends 'main.html' /}
 #{set title:'EASY EVENT' /} 
 #{set 'moreStyles'}
 <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerinicio.css'}" />
@@ -8,7 +8,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">EASY EVENT</a>
+    <a class="navbar-brand" href="@{Cadastrar.list2}">EASY EVENT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,7 +50,7 @@
                    <img src="@{Inicio.verFoto(cl.id)}" alt="Foto do local" />
                    <h3>${cl.nomeLocal}</h3>
                    <p wrap="hard">${cl.vantagens}</p>
-                   <a class="btn" href="@{Cadastrar.detalhar(cl.id)}">Acessar</a> | <a href="@{Cadastrar.remover(cl.id)}">Remover</a> | <a href="@{Cadastrar.editar(cl.id)}"> editar</a>
+                   <a class="btn" href="@{Cadastrar.detalhar(cl.id)}">Acessar</a>
                 </div>
                 #{/list}
                 

@@ -1,45 +1,15 @@
 #{extends 'main.html' /}
 #{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerformCadastrar.css'}" />
 #{/set}
-
-<style>
-    .photo-preview {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin: 10px 0;
-    }
-    .photo-preview img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-    .photo-input {
-        margin-bottom: 20px;
-    }
-    .photo-input label {
-        display: block;
-        margin-bottom: 10px;
-    }
-    .photo-input input[type="file"] {
-        display: block;
-        margin-bottom: 10px;
-    }
-    .photo-count {
-        color: #666;
-        font-size: 0.9em;
-    }
-</style>
+#{if local?.id}
+            <input type="hidden" name="c.id" value="${local.id}" />
+        #{/if}
 
 <div class="form">
     <form action="@{Cadastrar.salvar}" enctype="multipart/form-data" method="post">
         <div class="form-header">
             <div class="title">
                 <h1>Cadastre-se</h1>
-            </div>
-            <div class="login-button">
-                <button><a href="#">Entrar</a></button>
             </div>
         </div>
         <div class="input-group">
@@ -71,50 +41,19 @@
                 <label for="value">Valor</label>
                 <input id="value" type="number" name="c.valor" placeholder="Digite o valor do aluguel " required>
             </div>
-            <div class="input-box photo-input">
-                <label class="photo">Fotos (máximo 10)</label>
-                <input class="photo" type="file" name="c.fotos" accept="image/*" multiple onchange="previewPhotos(this)" />
-                <div class="photo-count">0/10 fotos selecionadas</div>
-                <div class="photo-preview" id="photoPreview"></div>
+            <div class="input-box">
+                <label class="photo">Foto</label>
+                <input class="photo" type="file" name="c.foto" accept="image/*" />
             </div>
             <div class="input-box">
                 <label for="advantages">Informe um pequeno texto falando sobre o local</label>
-                <textarea id="advantages" rows="2" maxlength="200" name="c.vantagens" placeholder="Texto sobre o local"></textarea>
+                <textarea id="advantages" rows="2" maxlength="200" name="c.vantagens" placeholder="Texto sobre o local / 200 caracteres"></textarea>
             </div>
         </div> 
         <div class="register-button">
-            <button type="submit">Cadastrar</button>
+            <button type="submit">#{if local?.id}Salvar#{/if}#{else}Cadastrar#{/else}</button>
         </div>
     </form> 
 </div>
 
-<script>
-function previewPhotos(input) {
-    const preview = document.getElementById('photoPreview');
-    const countDisplay = document.querySelector('.photo-count');
-    preview.innerHTML = '';
-    
-    if (input.files.length > 10) {
-        alert('Você pode selecionar no máximo 10 fotos');
-        input.value = '';
-        countDisplay.textContent = '0/10 fotos selecionadas';
-        return;
-    }
-    
-    countDisplay.textContent = `${input.files.length}/10 fotos selecionadas`;
-    
-    for (let i = 0; i < input.files.length; i++) {
-        const file = input.files[i];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                preview.appendChild(img);
-            }
-            reader.readAsDataURL(file);
-        }
-    }
-}
-</script>
-          
+

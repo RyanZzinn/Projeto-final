@@ -2,6 +2,11 @@
 #{set 'moreStyles'}<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/stylerformCadastrar.css'}" />
 #{/set}
 
+       #{if flash.error}
+        <div class="alert alert-error">
+            ${flash.error}
+        </div>
+              #{/if}
       <div class="form">
           <form action="@{Inicio.salvar}">
               <div class="form-header">
@@ -9,7 +14,7 @@
                      <h1>Cadastre-se</h1>
                 </div>
                 <div class="login-button">
-                     <button><a href="#">Entrar</a></button>
+                     <button><a href="@{Login.form}">Entrar</a></button>
                 </div>
               </div>
               <div class="input-group">
@@ -23,7 +28,7 @@
                  </div>
                  <div class="input-box">
                       <label for="number">Celular</label>
-                      <input id="number" type="number" name="p.celular" placeholder="Número do Celular" required>
+                      <input id="number" type="tel" name="p.celular" placeholder="Número do Celular" required>
                  </div>
                   <div class="input-box">
                       <label for="email">Email</label>

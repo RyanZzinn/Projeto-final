@@ -29,10 +29,10 @@ public class Inicio extends Controller {
 
 	public static void salvar(CadastrarPessoa p) {
 		p.nome = p.nome.toLowerCase();
-		p.email = p.email.toLowerCase();
+		p.dataNascimento = p.dataNascimento;
 		p.save();
-		String pessoa = session.get("usuario.email");
 		renderTemplate("Login/form.html");
+
 	}
 
 	public static void verFoto(Long id) {

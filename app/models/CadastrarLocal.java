@@ -1,12 +1,8 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
@@ -22,9 +18,7 @@ public class CadastrarLocal extends Model {
 	public String bairro;
 	public int numero;
 	public String cidade;
-	
-	@Transient
-	public List<Blob> fotos = new ArrayList<Blob>();
+	public Blob foto;
 	
 	@ManyToOne
 	@JoinColumn(name = "idpessoa")
